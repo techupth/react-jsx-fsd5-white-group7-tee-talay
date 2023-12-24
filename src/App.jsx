@@ -12,26 +12,50 @@ function getCurrentDateTime() {
 }
 
 function IntroSection() {
+  //Todo 1: ให้ Declare ตัว Variable articleStyles เป็น Object ใน Component IntroSection โดยที่ articleStyles มี Key-Value Pair
+  const articleStyles = {
+    container: "article",
+    title: "article-title",
+    body: "article-body",
+    link: "article-link",
+  };
   return (
-    <div>
-      <h3>TechUp Thailand</h3>
-      <p>เตรียมพบกับหลักสูตรปั้นคุณเป็น Software Developer ภายใน 4 เดือน</p>
-      <a href="https://www.techupth.com/" target="blank">
+    //Todo 2: ให้กำหนด className ให้กับ HTML Element เหล่านี้ในไฟล์ App.jsx เพื่อใช้งาน CSS Rule จากไฟล์ App.css
+    //HTML Element <div> ที่เป็น Parent ของ <h3> <p> และ <a> จะต้องมี className เป็นค่าของ Property container ใน Object articleStyles
+    // HTML Element <h3> จะต้องมี className เป็นค่าของ Property title ใน Object articleStyles
+    // HTML Element <p> จะต้องมี className เป็นค่าของ Property body ใน Object articleStyles
+    // HTML Element <a> จะต้องมี className เป็นค่าของ Property link ใน Object articleStyles
+    <div className={articleStyles.container}>
+      {/* <div className="article"> */}
+
+      <h3 className={articleStyles.title}>TechUp Thailand</h3>
+      <p className={articleStyles.body}>
+        เตรียมพบกับหลักสูตรปั้นคุณเป็น Software Developer ภายใน 4 เดือน
+      </p>
+      <a
+        className={articleStyles.link}
+        href="https://www.techupth.com/"
+        target="blank"
+      >
         techupth.com
       </a>
-      {/* ให้แสดงวันเวลาด้วย Function `getCurrentDateTime` ที่กำหนดไว้ให้ */}
+      <div className="bootcamp-start-time">
+        วันเวลาเริ่มหลักสูตร คือ {getCurrentDateTime()}
+        {" Hello !"}
+      </div>
     </div>
   );
 }
 
+//Todo 1: ให้แก้ไขการเขียน Attribute ของ JSX ใน Component LoginForm ของไฟล์ App.jsx ให้ถูกต้องตามหลักการเขียน JSX
 function LoginForm() {
   return (
-    <div class="login-container">
-      <form class="login-form">
+    <div className="login-container">
+      <form className="login-form">
         <h2>Login</h2>
-        <label for="username">Username</label>
+        <label htmlFor="username">Username</label>
         <input type="text" id="username" name="username" />
-        <label for="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input type="password" id="password" name="password" />
         <button type="submit">Login</button>
       </form>
